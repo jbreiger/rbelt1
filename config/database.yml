@@ -17,6 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: ubuntu 
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
@@ -80,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  #username: ubuntu 
   database: rbelt1_production
   username: rbelt1
   password: <%= ENV['RBELT1_DATABASE_PASSWORD'] %>
