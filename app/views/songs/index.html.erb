@@ -1,0 +1,36 @@
+<h1>All songs</h1>
+
+<table> 
+	<thead> 
+		<tr> 
+			<td> Artist </td>
+			<td> Title </td>
+			<td> Times added </td>
+			<td> Add to Playlist </td>
+		</tr>	
+	</thead>
+		<%@songs.each do |x|%>
+		<tr> 
+			<td><%=x.artist%> </td> 
+			<td> <a href="/songs/<%=x.id%>"> <%=x.title%> </a> </td>
+			<td> <%=x.user_songs.count%> </td>
+			<td> 
+				<form action="/user_songs/<%=x.id%>" method="POST"> 
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<button type="submit"> Add to playlist </button> 
+				</form>
+			</td>
+		
+		</tr>
+		<%end%>
+</table>		
+
+<h3> Add a song </h3>
+
+<form actions="/songs" method= "POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	Title: <input type= "text" name="song[title]">	
+	Artist: <input type= "text" name="song[artist]">
+	<button type="submit"> Add Song </button>
+</form>		
+

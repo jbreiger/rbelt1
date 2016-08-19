@@ -1,0 +1,17 @@
+<h1>Others have add this individual song</h1>
+
+<h3> Others who added <%=@song.artist%> - <%=@song.title%> </h3>
+<table> 
+	<thead>
+		<tr> 
+			<td> Name </td>
+			<td> Times added </td>
+		</tr>	
+	</thead>
+		<tr>
+		<%@answer.each do |x|%>
+			<td> <a href="/users/<%=x.id%>"> <%= x.first_name %> </td>
+			<td><%= x.user_songs.count%> </td>
+		</tr>
+		<%end%>
+</table>	

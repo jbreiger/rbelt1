@@ -1,0 +1,21 @@
+<h1>Here is the login page</h1>
+
+<h3> Register </h3>
+
+<form action="/users" method="POST">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	First Name: <input type="text" name="user[first_name]">
+	Last Name: <input type="text" name="user[last_name]">
+	Email: <input type="text" name="user[email]">
+	Password: <input type="password" name="user[password]">
+	<button type="submit"> Register </button>
+</form>
+
+<h3> Login </h3>	
+
+<form action="/sessions" method="POST">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	Email: <input type="text" name="user[email]">
+	Password: <input type="password" name="user[password]">
+	<button type="submit"> Login </button>
+</form>

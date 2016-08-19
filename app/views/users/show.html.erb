@@ -1,0 +1,21 @@
+<h1>Specific Users playlist</h1>
+
+<h3> <%=@user_name.first_name%> <%=@user_name.last_name%> Playlist </h3>
+
+<table>
+	<thead>
+		<tr> 
+			<td> Artist </td>
+			<td> Title </td>
+			<td> Times add </td>
+		</tr>
+	<thead>	
+		<%@user.each do |x|%>
+		<tr> 
+			<td> <%=x.artist%> </td>
+			<td> <%=x.title%></td>
+			<td><%=x.user_songs.count%> </td>
+		</tr>
+	<%end%>	
+</table>
+
